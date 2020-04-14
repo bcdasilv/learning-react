@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Table from './Table';
 import Form from './Form';
+import FetchDemo from './FetchDemo';
 
 class MyFirstApp extends Component {
     state = {
@@ -28,6 +29,7 @@ class MyFirstApp extends Component {
         <div className="container">
             <Table peopleData={people} removePerson={this.removePerson} />
             <Form handleSubmit={this.handleSubmit}/>
+            <FetchDemo subreddit="reactjs"/>
         </div>
         )
     }
