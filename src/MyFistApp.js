@@ -29,7 +29,7 @@ class MyFirstApp extends Component {
         <div className="container">
             <Table peopleData={people} removePerson={this.removePerson} />
             <Form handleSubmit={this.handleSubmit}/>
-            <FetchDemo subreddit="reactjs"/>
+            <FetchDemo subreddit="calpoly"/>
         </div>
         )
     }
