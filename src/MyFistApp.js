@@ -23,29 +23,51 @@ class MyFirstApp extends Component {
     removePerson = index => {
         const { people } = this.state
 
-        this.setState({
-          people: people.filter((person, i) => {
-            return i !== index;
-          }),
-        })
+        this.makeDeleteCall(people[index].id).then( response => {
+          if (response === true) {
+            this.setState({
+              people: people.filter((person, i) => {
+                return i !== index;
+              }),
+            })
+          }
+      });
+
+        // this.setState({
+        //   people: people.filter((person, i) => {
+        //     return i !== index;
+        //   }),
+        // })
+    }
+
+    makeDeleteCall(id){
+      console.log(`http://localhost:5000/users/`+id)
+      return axios.delete(`http://localhost:5000/users/`+id)
+      .then(res => {
+        if (res.status === 204)
+          return true
+      })
+      .catch(function (error) {
+        //Not handling the error. Just logging in the console.
+        console.log(error);
+      }); 
     }
 
     makePostCall(person){
         return axios.post('http://localhost:5000/users', person)
         .then(function (response) {
           console.log(response);
-          return (response.status === 200);
+          return response;
         })
         .catch(function (error) {
           console.log(error);
-          return false;
         });
     }
 
     handleSubmit = person => {
-        this.makePostCall(person).then( callResult => {
-            if (callResult === true) {
-                this.setState({ people: [...this.state.people, person] });
+        this.makePostCall(person).then( response => {
+            if (response.status === 201) {
+                this.setState({ people: [...this.state.people, response.data] });
             }
         });
     }
