@@ -34,7 +34,7 @@ class MyFirstApp extends Component {
         return axios.post('http://localhost:5000/users', person)
         .then(function (response) {
           console.log(response);
-          return (response.status === 200);
+          return (response.status === 201);
         })
         .catch(function (error) {
           console.log(error);
