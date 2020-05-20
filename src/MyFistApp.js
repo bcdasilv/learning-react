@@ -42,7 +42,7 @@ class MyFirstApp extends Component {
 
     makeDeleteCall(id){
       console.log(`http://flask-playground.herokuapp.com/users/`+id)
-      return axios.delete(`http://localhost:5000/users/`+id)
+      return axios.delete(`http://flask-playground.herokuapp.com/users/`+id)
       .then(res => {
         if (res.status === 204)
           return true
