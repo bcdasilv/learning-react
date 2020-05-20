@@ -2,7 +2,7 @@ language: node_js
 
 #if you want to specify a particular node.js version
 node_js:
-  - 12 #latest 12.x release
+  - 12 #latest 12.x release 
   
 # command to install dependencies
 install:
