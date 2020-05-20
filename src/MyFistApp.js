@@ -9,7 +9,7 @@ class MyFirstApp extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/users`)
+        axios.get(`http://flask-playground.herokuapp.com/users`)
           .then(res => {
             const people = res.data.users_list;
             this.setState({ people });
@@ -41,7 +41,7 @@ class MyFirstApp extends Component {
     }
 
     makeDeleteCall(id){
-      console.log(`http://localhost:5000/users/`+id)
+      console.log(`http://flask-playground.herokuapp.com/users/`+id)
       return axios.delete(`http://localhost:5000/users/`+id)
       .then(res => {
         if (res.status === 204)
@@ -54,7 +54,7 @@ class MyFirstApp extends Component {
     }
 
     makePostCall(person){
-        return axios.post('http://localhost:5000/users', person)
+        return axios.post('http://flask-playground.herokuapp.com/users', person)
         .then(function (response) {
           console.log(response);
           return response;
