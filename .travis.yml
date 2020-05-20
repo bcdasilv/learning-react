@@ -9,5 +9,6 @@ install:
   - npm install
   
 # command to run tests
-script:
-  - npm test
+#commented out since we don't have tests in javascript
+#script:
+#  - npm test
